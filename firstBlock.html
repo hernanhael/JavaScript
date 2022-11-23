@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<h1>First Steps JS</h1>
+<script>
+  //This is a global Scope. Use {} to declare a block.
+ /* let name = "Hernán";
+  console.log(name);
+
+  {
+    //This is one block for Scope, like let.
+    let name = "Hernán Hael";
+    console.log(name);
+  }
+  console.log(name);
+
+//Window is the JS global Object (Scoup) in any browser, frontend.
+//Global is the JS global Object (Scoup) in NodeJS, backend. 
+
+//Const its a not variable assignation. Declare with UPER_CASE. Can't declare a const with a empty space.
+const PI = 3.1416; 
+console.log("Las const no varían, " + PI);
+
+//var & const are different with primitives values & compost values (objetc, array, Etc.).  
+//const in primitive dates can be modify, JS sigue considerando como "object" a la const, no varía.
+
+let object = { 
+    name: "Hernán", 
+    age: 35
+}
+
+let array = ["Churo", "John Bitch", "Oso", "Martín"]
+
+console.log(object, array); 
+
+//add a propietie. 
+object.lastName = "Hael"; 
+
+//add another one to array. 
+array.push("Tuna")   
+
+console.log(array, object); 
+
+
+//String (object) Methods. All metodhs and propieties in MDN. 
+console.log(
+            object.name.toUpperCase(),
+            object.lastName.toLowerCase());
+
+//Concatenación 
+let name1 = "Juan"; 
+let lastName1 = "Pérez"; 
+
+console.log("Hi, my name is " + name1 + " " + lastName1 + "."); 
+
+//Interpolation && Template String.
+console.log(`Hi, my name is ${name} ${object.lastName}.`)
+
+
+//Numbers 
+let microdosis = 1; 
+let dosis = 2.5;
+let itsNotANumber = "5.5";  
+
+console.log(typeof itsNotANumber, typeof dosis); 
+console.log(parseFloat(dosis)); 
+console.log(parseInt(dosis)); //change String to Number. 
+
+
+//Declarated function, move to global Scope.
+function sayHello() { 
+  console.log("Hi my friend");
+} 
+sayHello(); 
+
+console.log("*****************");
+
+let sayHelloFunction = sayHello();
+console.log(sayHelloFunction);
+
+function sayBye(name3 = "John", lastName3 = "G.") { 
+  console.log(`See u later ${name3} ${lastName3}, come back early!.`);
+}
+sayBye("Hernán", "Hael");
+sayBye();
+
+
+//Expressed function, don't move to global Scope. Don't need tipe the function name again.
+//It is a anonymous function.
+const ExpressedFunction = function () { 
+}
+
+
+//Array 
+const newArray = ["Martín", "Oso", "Rolo", "Fran", ["Maxi", "Godoy"]]; 
+console.log(newArray.length); 
+console.log(newArray[4]); 
+console.log(newArray[4][1]); 
+
+const newArrayWithMethod = Array.of("Pailon", "Nicolás", 1, 2); 
+const newArrayWithAssignament = Array(10).fill("Player"); //Add a new valor in the positions. 
+
+const colors = ["White", "Black", "Red"]; 
+colors.push("Blue"); 
+console.log(colors); 
+
+colors.pop(); 
+console.log(colors); 
+
+colors.forEach(function(e, i) { 
+  console.log(`<li id="${i}">${e}</li>`)
+}); 
+
+//Objects 
+const person = { 
+  name: "Hernán", 
+  lastName: "Hael", 
+  age: 29, 
+  hobbys: ["Fútbol", "Guitar", "Gym"], 
+  contact: { 
+    number: 3814452566,
+    email: "hernan_hael@hotmail.com", 
+    instagram: "hernanhael" 
+  },
+
+  presentation: function() { 
+    console.log(`Hi, my name is ${this.name} ${this.lastName}`);
+  }
+}
+
+console.log(person.name); 
+console.log(person.hobbys[0]); 
+console.log(person.contact.number); 
+
+person.presentation(); 
+
+//Object methods.
+Object.keys(person); 
+Object.values(person);
+console.log(person.hasOwnProperty("name")); 
+
+//Operators, == compare values, === compare values and date tipes. 
+console.log(10 === 10) || (0 === false); 
+console.log(10 === "10") && (10 === 10); 
+
+
+//Conditionals estructures. 
+let num = 17; 
+
+if(num >= 17) { 
+  console.log("U can drive!");
+} else {
+  console.log("No today may friend");
+}
+
+let uAreMajor = (num > 17)?"U are major": 
+"Ur not major!";
+console.log(uAreMajor); 
+
+let facundoSmoke = true; 
+let facundoSmoked = false; 
+
+if(facundoSmoke && facundoSmoked) { 
+  console.log("Good trip!"); 
+} else { 
+  console.log("Smoke one!");
+}
+
+let day = 1; 
+switch(day) { 
+  case 0: 
+    console.log("Monday") 
+    break; 
+  case 1: 
+    console.log("Saturday")
+    break; 
+  default:
+    console.log("Its not a day")
+    break;
+}
+
+//Loops/Bluces. 
+let a = 0; 
+while(a < 10) { 
+  console.log(a);
+  a++;
+}
+
+do {
+  console.log("In Do While, the instruction ejecutes almost in one time")
+} while(a < 4);
+
+const players = ["Rolo", "Juan Cruz", "Matías", "Chicha", "Pailon"]
+for(let i = 0; i < players.length; i++) { 
+  console.log(players[i]);
+}
+
+const player = { 
+  name: "Nicolás", 
+  lastName: "Mercau", 
+  age: 30
+} 
+
+//for in its a loop to search object propieties. 
+for(const propieties in player) { 
+  console.log(propieties);
+}
+
+for(const propieties in player) { 
+  console.log(`Key: ${propieties}, Value: ${player[propieties]}`);
+} //need use a [] to show the value of propieties.  
+
+let hours = [10, 11, 12, 13, 14, 15]
+for(const element of hours) { 
+  console.log(element);
+} //for of loop use to walk and show any  element of any JS iterenable object. 
+
+//Errors 
+try {
+  console.log("Try ejecutes the code");
+} catch(error) { 
+  console.log("If in the try code are a error, catch capure it");
+} finally{ 
+  console.log("Finally ejecutes allways");
+}
+
+try {
+  let numb1 = 10; 
+  if(isNaN(numb1)) { 
+    throw new Error("The caracter its not a number")
+  }
+} catch(error) { 
+  console.log(`The error is ${error}`);
+} 
+
+//Break & Continue
+let marcas  = ["Nike", "Adidas", "Puma", "UnderArmour"]
+for(let i = 0; marcas.length; i++) { 
+  if(i === 2) { 
+    break;
+  }
+  console.log(marcas[i]); 
+} */ 
+
+
+//Destructuración
+//Asiga las propiedades o elementos a variables nuevas. En los array
+//la variable se asigna según la posición del elemento. En los object
+//la variable se asigna por el nombre de la propiedad. 
+// const numbers = [1, 2, 3, 4]
+
+// let [one, two, three, four] = numbers; 
+// console.log(one, two, three); 
+
+// const persona = { 
+//   name: "Hernán", 
+//   lastname: "Hael", 
+//   age: 29
+// } 
+
+// let {name, lastname, age} = persona
+// console.log(name, lastname, age); 
+
+// //Literal Objects 
+// let name1 = "Tini";
+// let raza = "Schnauwzer"; 
+
+// dog = { 
+//   name1, 
+//   raza,
+//   apodo: "Perro Negro", 
+//   ladrad() { 
+//     console.log("Guau guau!"); 
+//   } 
+// } 
+
+
+// //REST & Spread. 
+// function sum(a, b, ...c) { 
+//   let resultado = a + b;
+
+//   c.forEach(function(y) {
+//     resultado += y; 
+//   });
+
+//   return resultado; 
+// } 
+
+// console.log(sum(1, 2, 15));
+
+// const array1 = [1, 2, 3, 4, 5, 6,] 
+// const array2 = [7, 8, 9, 10, 11, 12]
+
+// const array3 = [array1, array2] 
+// console.log(array3); 
+
+// const array4 = [...array1, ...array2] 
+// console.log(array4);  
+
+// //Arrow Function
+// const saludar = (nombre) => { 
+//   console.log(`Hola ${nombre}`);
+// } 
+
+// saludar("Juan");
+// //Funciones con una línea de código pueden no llevar llaves. Más de una línea
+// //si o si llevan llaves.
+// const sumar = (a, b) => a + b; 
+// console.log(sumar(1, 14));
+
+// const sumar1 = (a, b) => { 
+//   return a + b; 
+//   console.log(sumar1);
+// }
+
+// console.log(sumar1(14, 17));
+
+
+// const array45 = [99, 14, 350, 121]
+// const myNewArray = array45.find(function(element) { 
+//   return element > 100;
+// }); 
+// console.log(myNewArray);
+
+// const food = ["Sandwich", "Pizza", "Asado", "Empanadas"]
+
+// food.forEach((e, y) => { 
+//   console.log(`Mi comida favorita es ${e} y está en ${y} lugar`
+// )});
+
+// const array48 = array45.map(function(e) { 
+//   return e + 10;
+// });
+
+// console.log(array48); 
+
+
+// //Las A.F. remiten el THIS al Scoup global. Las funciones comunes computan el THIS al scoup propio.
+// //No es buena práctica crear metodos en objetos literales con A.F.
+// const dog1 = {
+//   name: "Zara", 
+//   race: "Schauwzzer", 
+//   age: 15,
+//   do:() => { 
+//     console.log(this);
+//   }
+// } 
+// dog1.do(); 
+
+// const dog2 = { 
+//   name: "Pepa", 
+//   race: "Caniche Toy", 
+//   age: 7, 
+//   ladrad() { 
+//     console.log("Guau Guau");
+//   }
+// } 
+// dog2.ladrad();
+
+// //Class & Object 
+// //Function constructura 
+// function Animal(name, race, age) { 
+//   this.name = name; 
+//   this.age = age; 
+//   this.race = race; 
+
+//   this.sonar = function() {
+//     console.log("Make a sound!")
+//   }
+// } 
+// const snoopy = new Animal("Snoopy", 140, "Dog");
+// const charlyBrown = new Animal("Charly", 145, "Human"); 
+
+// //Dentro de la función constructora, lo ideal es no declarar métodos porque ocupa lugar en la memoria.
+// //Lo ideal es declarar los metodos dentro del prototipo y no de la función.
+
+// function Human(name, profesion, hobby) { 
+//   this.name = name; 
+//   this.profesion = profesion; 
+//   this.hobby = hobby; 
+//   }
+
+// Human.prototype.saludar = function() { 
+//   console.log("Hola, no ocupo memoria porque estoy en el prototipo");
+// //De esta manera se optimiza la aplicación y se declaran los métodos de las func. constructoras.  
+
+
+// //Función constructora. Herencia prototípica.
+//   function Perro(name, age, race, size) { 
+//     this.super = Animal;
+//     super(name, age, race) 
+//     this.size = size;  
+//   } 
+  
+//   Perro.prototype = new Animal(); 
+//   Perro.prototype.constructor = Perro; 
+  
+//  //Sobrescritura metodo del hijo al padre.  
+//   Perro.prototype.sonar = function() { 
+//     console.log("Soy un perro y puedo hacer sonidos");
+//   } 
+
+// //Declaración de nuevo método en la instancia. 
+//   Perro.prototype.ladrad = function() { 
+//     console.log("Guauuu guauuu!");
+//   } 
+
+//  //Instanciando Perro.
+//   const snoopy = new Perro("Snoopy", 25, "Dog", "Medium"); 
+
+  
+//   Perro.sonar(); 
+//   Perro.ladrad();
+
+
+// } 
+/*
+class Animal { 
+  constructor(name, age, race) {  this
+    this.name = name; 
+    this.age = age; 
+    this.race = race; 
+  } 
+
+  sonar() { 
+    console.log("Soy un animal y hago ruido");
+  }
+
+  saludar() { 
+    console.log(`Soy un aniaml y me llamo ${name}`);
+  } 
+}
+  class Perro extends Animal { 
+    constructor(name, age, race, size) {
+    super(name, age, race); 
+    this.size = size; 
+    this.color = null; 
+    } 
+    
+    sonar() { 
+      console.log("Hago ruidooo");
+    }  
+
+    ladrad() { 
+      console.log("Guauuu guauuu"); 
+    }
+    //LOs métodos estáticos se pueden ejecutar sin instanciar la clase. 
+    static whoIm() { 
+      console.log("Im a dog");
+    } 
+
+    //Getter & Setter 
+    get getColor(){ 
+      return this.color; 
+    } 
+
+    set setColor(color){ 
+      this.color = color; 
+    }
+  
+  } 
+
+  Perro.whoIm(); 
+
+  const bunny = new Animal("Bunny", 25, "Rabbit"); 
+  const snoopy = new Perro("Snoopy", 14, "Dog", "Small"); 
+  
+  console.log(bunny); 
+  console.log(snoopy); 
+
+  snoopy.sonar(); 
+  //snoopy.ladrar(); 
+  bunny.sonar();
+  //Se lo solicita como a un atributo y no como a un método.
+  snoopy.getColor; 
+  console.log(snoopy.getColor);
+  snoopy.setColor = "White"; 
+  
+  console.clear(); 
+
+  let x = 1, 
+  y = 3, 
+  pruebaXY = "Se espera que X sea menor que Y"; 
+
+ // console.assert(x < y, {x, y, pruebaXY}); 
+
+console.clear(); 
+
+console.log(Date());  
+
+let date = new Date(); 
+console.log(date);  
+
+console.log(date.getDate()); 
+console.log(date.getDay());  
+console.log(date.getMonth()); 
+console.log(date.getFullYear()); 
+console.log(date.getHours());  
+
+console.log(date.toLocaleString()); 
+
+console.clear(); 
+
+console.log(Math.round(Math.random() * 100));
+
+function hola(name) { 
+  name = name || "Who are u?" 
+  console.log(`Hola ${name}`);
+} 
+
+
+hola("Hernán");
+hola(); 
+
+console.clear(); 
+
+console.log(1 || "Si es false, es mi turno"); 
+console.log("Los dos tenemos que ser" && "verdaderos");   
+
+console.clear(); 
+
+//Son métodos de window pero no hace falta expresar la palabra window.
+
+window.alert("Soy una alerta"); 
+window.prompt("Ingresa tu nombre"); 
+confirm("Confirmas?"); //En confirm, dependiendo si acepta o cancela se declara como true o false
+prompt("No hace falta la palabra..."); 
+
+let a = prompt("Podemos ser guardados en variables"); 
+console.log(a); 
+//El valor ingresado por el usuario en una prompt almacenado en una variable toma el valor 
+//ingresado por el usuario
+
+//Expresiones Regulares IMPORTANTE
+
+let text = "Mi nombre es Hernán y me gusta el fútbol"
+
+let expReg = new RegExp("Hernán", "ig"); 
+ 
+console.log(expReg.test(text)); 
+
+let expReg2 = /Hernán/ig;
+console.log(expReg2.exec(text));   
+
+//Funciones Anónimas Autoejecutables, están encapsulados individualmente
+
+(function() { 
+  console.log("Im a anonymous function");
+})();  
+
+(function(d, w, c){
+  console.log("Im another anonymous function");
+  console.log(d);
+  console.log(w); 
+  c.log("Un lindo atajo");
+})(document, window, console); */ 
+
+
+
+
+
+</script> 

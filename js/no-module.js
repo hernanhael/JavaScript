@@ -1,0 +1,1 @@
+console.log("If ur browser do not support ES6, I'll run"); 
